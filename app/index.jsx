@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 
-const MainPage = () => {
-  return <Text>Hello World</Text>;
+const HomePage = () => {
+  return <Text>Hello World 2</Text>;
 };
 
-export default MainPage;
+export default HomePage;
