@@ -3,16 +3,25 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import CustomDrawerContent from "../components/CustomDrawerContent";
+
 const MainLayout = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
+      <Drawer
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
+        screenOptions={{
+          drawerHideStatusBarOnOpen: true,
+        }}
+      >
         <Drawer.Screen
           name="index"
           options={{
             title: "Home",
             headerTitle: "Home Page",
-            drawerIcon: ({}) => <FontAwesome5 name="home" size={18} />,
+            drawerIcon: ({ size, color }) => (
+              <FontAwesome5 name="home" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -20,7 +29,9 @@ const MainLayout = () => {
           options={{
             title: "About",
             headerTitle: "About Page",
-            drawerIcon: ({}) => <Entypo name="info" size={18} />,
+            drawerIcon: ({ color, size }) => (
+              <Entypo name="info" size={size} color={color} />
+            ),
           }}
         />
         <Drawer.Screen
@@ -28,7 +39,9 @@ const MainLayout = () => {
           options={{
             title: "Contact",
             headerTitle: "Contact Page",
-            drawerIcon: ({}) => <MaterialIcons name="contact-page" size={18} />,
+            drawerIcon: ({ size, color }) => (
+              <MaterialIcons name="contact-page" size={size} color={color} />
+            ),
           }}
         />
       </Drawer>
